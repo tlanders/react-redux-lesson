@@ -15,9 +15,6 @@
         <button id="decrementButton">Decrement</button>
     </div>
 <script>
-    const incrementButton = document.getElementById('incrementButton');
-    const decrementButton = document.getElementById('decrementButton');
-
     const initialState = {
         count: 0
     };
@@ -50,7 +47,23 @@
         return actionReducer ? actionReducer(state, action) : state;
     }
 
-    var store = Redux.createStore(reducer);
+    const store = Redux.createStore(reducer);
+
+    const incrementButton = document.getElementById('incrementButton');
+    const decrementButton = document.getElementById('decrementButton');
+    const counterSpan = document.getElementById('counter');
+
+    incrementButton.addEventListener('click', () => store.dispatch(actionCreators.increment()));
+    decrementButton.addEventListener('click', () => store.dispatch(actionCreators.decrement()));
+
+    const updateCounter = () => {
+        const theState = store.getState();
+        console.log(theState);
+        counterSpan.innerHTML = theState.count;
+    };
+
+    store.subscribe(updateCounter);
+    updateCounter();    // set initial counter value to initial state
 </script>
 </body>
 </html>
