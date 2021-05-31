@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Redux Example Without React</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+</head>
+<body>
+    <h1>Redux Example Without Redux</h1>
+
+    <h2>Simple Counter</h2>
+    <div>
+        <button id="incrementButton">Increment</button>
+        <span id="counter">0</span>
+        <button id="decrementButton">Decrement</button>
+    </div>
+<script>
+    const incrementButton = document.getElementById('incrementButton');
+    const decrementButton = document.getElementById('decrementButton');
+
+    const initialState = {
+        count: 0
+    };
+
+    const actionTypes = {
+        INCREMENT: 'INCREMENT',
+        DECREMENT: 'DECREMENT'
+    };
+
+    const actionCreators = {
+        increment: () => ({
+            type: actionTypes.INCREMENT
+        }),
+        decrement: () => ({
+            type: actionTypes.DECREMENT
+        })
+    };
+
+    const reducer = (state = initialState, action) => {
+        switch (action.type) {
+            case actionTypes.INCREMENT:
+                return {
+                    count: state.count + 1
+                };
+            case actionTypes.DECREMENT:
+                return {
+                    count: state.count - 1
+                };
+        }
+        return state;
+    }
+
+    var store = Redux.createStore(reducer);
+</script>
+</body>
+</html>
