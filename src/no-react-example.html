@@ -23,31 +23,31 @@
     };
 
     const actionTypes = {
-        INCREMENT: 'INCREMENT',
-        DECREMENT: 'DECREMENT'
+        increment: 'INCREMENT',
+        decrement: 'DECREMENT'
     };
 
     const actionCreators = {
         increment: () => ({
-            type: actionTypes.INCREMENT
+            type: actionTypes.increment
         }),
         decrement: () => ({
-            type: actionTypes.DECREMENT
+            type: actionTypes.decrement
         })
     };
 
+    const actionsMap = {
+        [actionTypes.increment]: (state, action) => ({
+            count: state.count + 1
+        }),
+        [actionTypes.decrement]: (state, action) => ({
+            count: state.count - 1
+        }),
+    };
+
     const reducer = (state = initialState, action) => {
-        switch (action.type) {
-            case actionTypes.INCREMENT:
-                return {
-                    count: state.count + 1
-                };
-            case actionTypes.DECREMENT:
-                return {
-                    count: state.count - 1
-                };
-        }
-        return state;
+        const actionReducer = actionsMap[action.type];
+        return actionReducer ? actionReducer(state, action) : state;
     }
 
     var store = Redux.createStore(reducer);
