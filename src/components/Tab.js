@@ -1,9 +1,11 @@
 import React from "react";
 
-export const Tab = ({id, title, isActive}) => {
+export const Tab = ({id, title, isActive, onSetActiveTab}) => {
     return (
         <>
-            <h2>{title}{isActive && <span> - active</span>}</h2>
+            <h2 role={"button"} onClick={onSetActiveTab}>
+                {title}{isActive && <span> - active</span>}
+            </h2>
         </>
     );
 }

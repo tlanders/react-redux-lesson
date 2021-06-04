@@ -1,6 +1,7 @@
 import Tabs from "../components/Tabs";
 import {connect} from "react-redux";
 import truncate from "../util/truncate";
+import {setActiveTab} from "../redux/actions/tabs-actions";
 
 const mapStateToProps = (state) => {
     console.log(state);
@@ -16,6 +17,15 @@ const mapStateToProps = (state) => {
             })),
     };
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    onSetActiveTab: (id) => () => {
+        console.log('tab click: ' + id);
+        dispatch(setActiveTab(id));
+    }
+});
+
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Tabs);

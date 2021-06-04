@@ -11,6 +11,7 @@ export const Tabs = ({activeTabId, notes, tabs, onSetActiveTab, onSetActiveNote}
                 {tabs.map(tab => (
                     <Tab key={tab.id}
                         {...tab}
+                        onSetActiveTab={onSetActiveTab(tab.id)}
                     />
                 ))}
             </div>
