@@ -1,6 +1,7 @@
 import React from 'react';
 import {Tab} from "./Tab";
-import Notelist from "./Notelist";
+// import Notelist from "./Notelist";
+import NotelistContainer from "../containers/NotelistContainer";
 
 export const Tabs = ({activeTabId, notes, tabs, onSetActiveTab, onSetActiveNote}) => {
     console.log('active tab: ' + activeTabId);
@@ -15,7 +16,7 @@ export const Tabs = ({activeTabId, notes, tabs, onSetActiveTab, onSetActiveNote}
                     />
                 ))}
             </div>
-            <Notelist notes={notes}/>
+            <NotelistContainer notes={notes}/>
         </>
     );
 }
