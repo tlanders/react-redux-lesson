@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import ControlsButton from "./ControlsButton";
+import './Controls.css';
 
 export const Controls = ({activeTabId, onAddNote, onDeleteNote}) => {
     return (

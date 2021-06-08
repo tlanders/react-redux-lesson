@@ -12,8 +12,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    onAddNote: (tabId, initialContent) => () => console.log('on add for notepad'),
-    onUpdateNoteContent: (id, content) => () => console.log('on update note')
+    onAddNote: (tabId, initialContent) => console.log('on add for notepad'),
+    onUpdateNoteContent: (id, content) => console.log('on update note')
 })
 
 export default connect(

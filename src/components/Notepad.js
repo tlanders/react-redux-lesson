@@ -17,13 +17,13 @@ class Notepad extends Component {
     }
 
     handleChange = (e) => {
-        const {activeTabId, id, onAddNote, onUpdateNotContent} = this.props;
+        const {activeTabId, id, onAddNote, onUpdateNoteContent} = this.props;
         const content = e.target.value;
 
-        if(!this.activeNoteExists()) {
+        if(!this.activeNoteExists) {
             return onAddNote(activeTabId, content);
         } else {
-            return onUpdateNotContent(id, content);
+            return onUpdateNoteContent(id, content);
         }
     }
 
