@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import "./Notelist.css"
 
 const NotelistItem = ({isActive, title, lastEdited, onSetActiveNote}) => {
     return (

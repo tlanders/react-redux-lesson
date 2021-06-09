@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 // import NotelistItem from "./NotelistItem";
 import NotelistItemContainer from "../containers/NotelistItemContainer";
+import "./Notelist.css"
 
 class Notelist extends Component {
     static propTypes = {

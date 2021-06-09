@@ -1,21 +1,21 @@
 import React from 'react';
 import {Tab} from "./Tab";
-// import Notelist from "./Notelist";
 import NotelistContainer from "../containers/NotelistContainer";
 import "./Tabs.css"
 
-export const Tabs = ({activeTabId, notes, tabs, onSetActiveTab, onSetActiveNote}) => {
+export const Tabs = ({activeTabId, notes, tabs, onSetActiveTab}) => {
     console.log('active tab: ' + activeTabId);
     return (
         <>
-            <h1>Tabs</h1>
-            <div className={"tabs"}>
-                {tabs.map(tab => (
-                    <Tab key={tab.id}
-                        {...tab}
-                        onSetActiveTab={onSetActiveTab(tab.id)}
-                    />
-                ))}
+            <div className="tabs">
+                <ul className="tabs__menu">
+                    {tabs.map(tab => (
+                        <Tab key={tab.id}
+                            {...tab}
+                            onSetActiveTab={onSetActiveTab(tab.id)}
+                        />
+                    ))}
+                </ul>
             </div>
             <NotelistContainer notes={notes}/>
         </>
