@@ -2,6 +2,7 @@ import React from 'react';
 import {Tab} from "./Tab";
 // import Notelist from "./Notelist";
 import NotelistContainer from "../containers/NotelistContainer";
+import "./Tabs.css"
 
 export const Tabs = ({activeTabId, notes, tabs, onSetActiveTab, onSetActiveNote}) => {
     console.log('active tab: ' + activeTabId);
