@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
-// import NotelistItem from "./NotelistItem";
 import NotelistItemContainer from "../containers/NotelistItemContainer";
+import "./Notelist.css"
+import NotelistEmpty from "./NotelistEmpty";
 
 class Notelist extends Component {
     static propTypes = {
@@ -22,18 +23,21 @@ class Notelist extends Component {
     render() {
         const {noteIds} = this.props;
         return (
-            <>
-                <h4>Note List</h4>
-                {!this.hasNotes && (<p>notes empty</p>)}
-                {this.hasNotes && noteIds.map((noteId) => (
-                    <ul>
-                        <NotelistItemContainer
-                            key={noteId}
-                            id={noteId}
-                        />
-                    </ul>
-                ))}
-            </>
+            <div className="notelist">
+                {!this.hasNotes
+                    ? (<NotelistEmpty />)
+                    : (
+                        <ul className="notelist__list">
+                            {this.hasNotes && noteIds.map((noteId) => (
+                                <NotelistItemContainer
+                                    key={noteId}
+                                    id={noteId}
+                                />
+                            ))}
+                        </ul>
+                    )
+                }
+            </div>
         )
     }
 };

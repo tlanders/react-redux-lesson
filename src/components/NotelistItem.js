@@ -1,17 +1,22 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import "./Notelist.css"
 
 const NotelistItem = ({isActive, title, lastEdited, onSetActiveNote}) => {
     return (
         <li onClick={onSetActiveNote}
             role={"button"}
-            className={classnames('notelist_list_item', {
-                'notelist_list_item_active' : isActive,
+            className={classnames('notelist__list__item', {
+                'notelist__list__item--active': isActive,
             })}
         >
-            <div>{title}</div>
-            <div>{lastEdited}</div>
+            <div className="notelist__list__item__title">
+                {title}
+            </div>
+            <div className="notelist__list__item__last-edited">
+                {lastEdited}
+            </div>
         </li>
     )
 };
