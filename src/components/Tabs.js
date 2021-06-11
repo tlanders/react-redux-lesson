@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import NotelistContainer from "../containers/NotelistContainer";
 import "./Tabs.css";
 
-export const Tabs = ({activeTabId, notes, tabs, onSetActiveTab, onSetActiveNote}) => {
+export const Tabs = ({activeTabId, notes, tabs, onSetActiveTab}) => {
     console.log('active tab: ' + activeTabId);
     return (
         <>
