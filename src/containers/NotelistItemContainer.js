@@ -1,15 +1,13 @@
 import NotelistItem from "../components/NotelistItem";
 import {connect} from "react-redux";
 import {setActiveNote} from "../redux/actions/notes-actions";
-import {getNoteById} from "../redux/selectors/notes-selectors";
+import {getNoteById, getNotesForActiveTab} from "../redux/selectors/notes-selectors";
 
-const mapStateToProps = (state, ownProps) => {
-    // const {id} = ownProps;
-    const note = getNoteById(state, ownProps);
+const mapStateToProps = (state) => {
+    const notes = getNotesForActiveTab(state);
+    console.log('note list item container - notes: ', notes);
     return {
-        isActive: note.isActive,
-        title: note.title,
-        lastEdited: note.lastEdited
+        notes
     };
 };
 

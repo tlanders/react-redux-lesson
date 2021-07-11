@@ -2,7 +2,7 @@ import initialState from "./initial-state";
 import actionTypes from '../actions/action-types';
 
 const tabsReducer = (state = initialState.tabs, action) => {
-    console.log('state: ' + state + ', action: ' + action);
+    console.log('tabs reducer - state: ', state, ', action: ', action);
     switch(action.type) {
         case actionTypes.tabs.setActiveTab :
             return state.map(tab => ({
