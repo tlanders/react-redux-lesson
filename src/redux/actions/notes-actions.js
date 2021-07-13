@@ -1,14 +1,19 @@
 import actionTypes from "./action-types";
 import uuid from 'react-uuid';
+import {getLastEditedTime} from "../../util/get-last-edited-time";
 
-const noteFactory = (tabId, initialContent = '') => ({
-    id: uuid(),
-    tabId,
-    content: initialContent,
-    lastEdited: Date.now(),
-    title: 'Untitled',
-    isActive: true
-});
+const noteFactory = (tabId, initialContent = '') => {
+    const {printed, raw} = getLastEditedTime();
+    return {
+        id: uuid(),
+        tabId,
+        content: initialContent,
+        lastEdited: printed,
+        lastEditedRaw: raw,
+        title: 'Untitled',
+        isActive: true
+    }
+};
 
 export const addNote = (tabId, initialContent = '') => ({
     type: actionTypes.notes.addNote,
