@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 
-const getTabs = (state) => state.tabs;
+export const getTabs = (state) => state.tabs;
 
 export const getActiveTab = createSelector(
     getTabs,

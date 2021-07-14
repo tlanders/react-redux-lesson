@@ -1,10 +1,10 @@
 import Notelist from "../components/Notelist";
 import {connect} from "react-redux";
-import {getNoteIdsForActiveTab, getNotesForActiveTab} from "../redux/selectors/notes-selectors";
+import {getNotesForActiveTab} from "../redux/selectors/notes-selectors";
 import {setActiveNote} from "../redux/actions/notes-actions";
 
 const mapStateToProps = (state) => ({
-    noteIds: getNotesForActiveTab(state),
+    notes: getNotesForActiveTab(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
