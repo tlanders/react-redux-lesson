@@ -20,6 +20,13 @@ export const addNote = (tabId, initialContent = '') => ({
     ...noteFactory(tabId, initialContent),
 });
 
+export const updateNoteContent = (id, content) => ({
+    type: actionTypes.notes.updateNote,
+    id,
+    content,
+    lastEdited: getLastEditedTime(),
+});
+
 export const deleteNote = (id) => ({
     type: actionTypes.notes.deleteNote,
     id
