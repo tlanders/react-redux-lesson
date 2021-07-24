@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
-import NotelistItemContainer from "../containers/NotelistItemContainer";
 import "./Notelist.css"
 import NotelistEmpty from "./NotelistEmpty";
+import NotelistItem from "./NotelistItem";
 
 class Notelist extends Component {
     static propTypes = {
@@ -32,9 +32,9 @@ class Notelist extends Component {
                     : (
                         <ul className="notelist__list">
                             {this.hasNotes && notes.map((note) => (
-                                <NotelistItemContainer
+                                <NotelistItem
                                     key={note.id}
-                                    onSetActiveNotes={onSetActiveNote(note.id, note.isActive)}
+                                    onSetActiveNote={onSetActiveNote(note.id, note.isActive)}
                                     {...note}
                                 />
                             ))}
