@@ -11,6 +11,8 @@ const notesReducer = (state = initialState.notes, action) => {
                 .map(note => ({...note, isActive: false}))
                 .concat([newNote]);
         case actionTypes.notes.deleteNote :
+            // console.log('deleteNote reducer - id=' + action.id + 'pre state=', state);
+            return state.filter(note => !note.isActive);
         case actionTypes.notes.setActiveNote :
         case actionTypes.notes.updateNote :
             // console.log('updateNode, pre state=', state);
