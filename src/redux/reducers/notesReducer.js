@@ -14,7 +14,7 @@ const notesReducer = (state = initialState.notes, action) => {
             // console.log('deleteNote reducer - id=' + action.id + 'pre state=', state);
             return state.filter(note => !note.isActive);
         case actionTypes.notes.setActiveNote :
-            console.log('set active note, id=', action.id);
+            // console.log('set active note, id=', action.id);
             return state.map(note => ({...note, isActive: note.id === action.id}));
         case actionTypes.notes.updateNote :
             // console.log('updateNode, pre state=', state);
@@ -26,8 +26,6 @@ const notesReducer = (state = initialState.notes, action) => {
                     lastEdited: action.lastEdited.printed,
                     lastEditedRaw: action.lastEdited.raw,
                 }));
-            // console.log('updateNote reducer - id=' + action.id + ', content=', action.content);
-            // console.log('updateNode, post state=', state);
             return state;
         default:
             return state;

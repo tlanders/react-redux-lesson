@@ -4,7 +4,7 @@ import {setActiveTab} from "../redux/actions/tabs-actions";
 import {getActiveTabId, getTabs} from "../redux/selectors/tabs-selectors";
 
 const mapStateToProps = (state) => {
-    console.log(state);
+    // console.log(state);
     return {
         activeTabId: getActiveTabId(state),
         tabs: getTabs(state),
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
     onSetActiveTab: (id) => () => {
-        console.log('tab click: ' + id);
+        // console.log('tab click: ' + id);
         dispatch(setActiveTab(id));
     }
 });
