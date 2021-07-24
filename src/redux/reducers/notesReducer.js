@@ -29,8 +29,6 @@ const notesReducer = (state = initialState.notes, action) => {
             // console.log('updateNote reducer - id=' + action.id + ', content=', action.content);
             // console.log('updateNode, post state=', state);
             return state;
-        case actionTypes.tabs.setActiveTab :
-            // set first tab note as active?
         default:
             return state;
     }
